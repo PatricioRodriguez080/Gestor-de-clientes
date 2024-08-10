@@ -1,0 +1,16 @@
+.container-clientes {
+    background-color: grey;
+    border-radius: 25px;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.col-clientes:first-child .card {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.card-clientes {
+    --bs-card-border-radius: 0;
+}
