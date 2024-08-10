@@ -1,7 +1,7 @@
-.navbar {
+.navbar, .offcanvas {
     background-color: #337CA0;
 }
 
-.offcanvas {
-    background-color: #337CA0;
+.navbar-brand {
+    margin: 0 0 0 10px;
 }
