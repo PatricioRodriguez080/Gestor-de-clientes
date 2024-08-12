@@ -2,13 +2,14 @@ import React, { useContext } from 'react'
 import "./sectionClientes.css"
 import ClientesList from './ClienteList'
 import { ClientesContext } from '../../context/ClientesContext'
+import SkeletonCliente from '../Skeletons/SkeletonCliente'
 
 const ClientesListContainer = () => {
-  const { clientes } = useContext(ClientesContext)
+  const { clientes, loading } = useContext(ClientesContext)
   
   return (
     <div className="container-clientes mt-4">
-        <ClientesList clientes={clientes} />
+        {loading ? <SkeletonCliente /> : <ClientesList clientes={clientes} />}
     </div>
   )
 }
