@@ -1,7 +1,6 @@
 .container-clientes {
     background-color: #337CA0;
-    border-radius: 25px;    
-    flex: 1;
+    border-radius: 25px;
     overflow-x: hidden;
     overflow-y: auto;
 }

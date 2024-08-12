@@ -23,7 +23,7 @@ const ClientesContextProvider = ({ children }) => {
         }
 
         fetchData()
-    }, [])
+    }, [clientes])
 
     const sumaGanancias = (clientes) => {
         return clientes.reduce((acum, cliente) => {

@@ -21,11 +21,13 @@ const AgregarCliente = () => {
   }
 
   const generarCliente = async () => {
+    const montoNumerico = parseFloat(monto)
+
     const cliente = {
       Nombre: nombre,
       Gmail: email,
       UltimoPago: fechaUltimoPago,
-      Pagos: [{Fecha: fechaUltimoPago, Monto: monto}]
+      Pagos: [{Fecha: fechaUltimoPago, Monto: montoNumerico}]
     }
 
     try {
@@ -92,12 +94,12 @@ const AgregarCliente = () => {
         </p>
       </div>
       <div className="container-monto">
-        <h2>Monto</h2>
+        <h2>Informacion del pago</h2>
         <div className="form-floating mb-3">
           <input
             type="number"
             className="form-control"
-            id="floatingEmail"
+            id="floatingMonto"
             placeholder="monto"
             value={monto}
             onChange={(e) => setMonto(e.target.value)}
