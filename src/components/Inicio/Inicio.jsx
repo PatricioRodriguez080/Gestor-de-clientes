@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import { useContext } from "react"
 import "./inicio.css"
-import { ClientesContext } from '../../context/ClientesContext'
+import { ClientesContext } from "../../context/ClientesContext"
 
 const Inicio = () => {
-  const { cantClientes, acumMonto } = useContext(ClientesContext)
+  const { cantClientes, acumMonto, contClientesBorrados } = useContext(ClientesContext)
 
   return (
     <>
@@ -18,8 +18,8 @@ const Inicio = () => {
           <h3 className="text-center">{acumMonto}</h3>
         </div>
         <div className="container-datos">
-          <h2 className="text-center mb-4">dato3</h2>
-          <h3 className="text-center">dato3</h3>
+          <h2 className="text-center mb-4">Clientes borrados</h2>
+          <h3 className="text-center">{contClientesBorrados}</h3>
         </div>
       </div>
       <h2>ACA PODRIA PONER UN GRAFICO CON CHART JS EN EL QUE ME MUESTRE LOS CLIENTES SEGUN EL MES Y LOS INGRESOS SEGUN EL MES</h2>

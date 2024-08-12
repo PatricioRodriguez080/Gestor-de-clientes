@@ -21,6 +21,7 @@
 
 .fa-solid {
     color: #22546D;
+    cursor: pointer;
 }
 
 .fa-solid:hover {

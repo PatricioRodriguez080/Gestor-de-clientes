@@ -7,6 +7,7 @@ const ClientesContextProvider = ({ children }) => {
     const [clientes, setClientes] = useState([])
     const [cantClientes, setCantClientes] = useState(0)
     const [acumMonto, setAcumMonto] = useState(0)
+    const [contClientesBorrados, setContClientesBorrados] = useState(0)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const ClientesContextProvider = ({ children }) => {
     }
 
     return (
-        <ClientesContext.Provider value={{ clientes, cantClientes, loading, acumMonto }}>
+        <ClientesContext.Provider value={{ clientes, cantClientes, loading, acumMonto, contClientesBorrados, setContClientesBorrados }}>
             {children}
         </ClientesContext.Provider>
     )

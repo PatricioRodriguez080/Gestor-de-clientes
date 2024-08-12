@@ -54,7 +54,7 @@ export const getClienteDetail = async (id) => {
     }
 }
 
-export const borrarCliente = async (id) => {
+export const borrarClienteFS = async (id) => {
     try {
         const clienteRef = doc(db, "Clientes", id)
         await deleteDoc(clienteRef)

@@ -1,13 +1,26 @@
 import "./sectionClientes.css"
 import { DateTime } from 'luxon'
-import { borrarCliente } from '../../services/clientService'
+import { borrarClienteFS } from '../../services/clientService'
 import { Link } from 'react-router-dom'
+import { useContext } from "react"
+import { ClientesContext } from "../../context/ClientesContext"
 
 const Cliente = ({ id, Nombre, UltimoPago, Pagos }) => {
+    const { contClientesBorrados, setContClientesBorrados } = useContext(ClientesContext)
+
     const fechaUltimoPago = DateTime.fromFormat(UltimoPago, 'dd/MM/yyyy')
     const fechaProximoPago = fechaUltimoPago.plus({ months: 1 })
     const diasRestantes = Math.ceil(fechaProximoPago.diffNow('days').days)
     const mensajePago = diasRestantes >= 0 ? `Días restantes para el próximo pago: ${diasRestantes}` : `Adeuda hace ${Math.abs(diasRestantes)} días`
+
+    const borrarCliente = async (idABorrar) => {
+        try {
+            await borrarClienteFS(idABorrar)
+            setContClientesBorrados(contClientesBorrados + 1)    
+        } catch (error) {
+            console.log("Error al eliminar el cliente: ", error)
+        }
+    }
 
     return (
         <div className="col-12 col-clientes">
