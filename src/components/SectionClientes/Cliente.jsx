@@ -14,7 +14,7 @@ const Cliente = ({ id, Nombre, UltimoPago, Pagos }) => {
             <div className="card card-clientes">
                 <div className="row g-0">
                     <div className="col-md-2 d-flex align-items-center justify-content-center">
-                        <i className="fa-regular fa-user fa-2x"></i>
+                        <i className="fa-regular fa-user fa-user-card"></i>
                     </div>
                     <div className="col-md-7">
                         <div className="card-body">

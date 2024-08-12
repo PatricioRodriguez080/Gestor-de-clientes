@@ -1,0 +1,28 @@
+.cliente-detail {
+    display: flex;
+    align-items: center;
+}
+
+.cliente-icon {
+    font-size: 60px;
+    margin-right: 20px;
+}
+
+.cliente-pagos {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    .cliente-detail {
+        flex-direction: column;
+    }
+
+    .cliente-icon {
+        margin-bottom: 30px;
+    }
+
+    .cliente-pagos {
+        align-items: center;
+    }
+}

@@ -14,3 +14,25 @@
 .card-clientes {
     --bs-card-border-radius: 0;
 }
+
+.fa-user-card {
+    color: #22546D;
+    font-size: 60px;
+}
+
+.fa-solid {
+    color: #22546D;
+}
+
+.fa-solid:hover {
+    color: #337CA0;
+}
+
+.btn-agregar-cliente {
+    width: 200px;
+    background-color: #22546D;
+}
+
+.btn-agregar-cliente:hover {
+    background-color: #337CA0;
+}
