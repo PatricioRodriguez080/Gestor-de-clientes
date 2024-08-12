@@ -3,7 +3,7 @@ import "./inicio.css"
 import { ClientesContext } from '../../context/ClientesContext'
 
 const Inicio = () => {
-  const { cantClientes } = useContext(ClientesContext)
+  const { cantClientes, acumMonto } = useContext(ClientesContext)
 
   return (
     <>
@@ -15,7 +15,7 @@ const Inicio = () => {
         </div>
         <div className="container-datos">
           <h2 className="text-center mb-4">Gnancia</h2>
-          <h3 className="text-center">$40.980</h3>
+          <h3 className="text-center">{acumMonto}</h3>
         </div>
         <div className="container-datos">
           <h2 className="text-center mb-4">dato3</h2>
