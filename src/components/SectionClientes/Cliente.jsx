@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom'
 import { useContext } from "react"
 import { ClientesContext } from "../../context/ClientesContext"
 
-const Cliente = ({ id, Nombre, UltimoPago, Pagos }) => {
+const Cliente = ({ id, Nombre, UltimoPago, Estado, DiasRestantes }) => {
     const { contClientesBorrados, setContClientesBorrados } = useContext(ClientesContext)
 
-    const fechaUltimoPago = DateTime.fromFormat(UltimoPago, 'dd/MM/yyyy')
-    const fechaProximoPago = fechaUltimoPago.plus({ months: 1 })
-    const diasRestantes = Math.ceil(fechaProximoPago.diffNow('days').days)
-    const mensajePago = diasRestantes >= 0 ? `Días restantes para el próximo pago: ${diasRestantes}` : `Adeuda hace ${Math.abs(diasRestantes)} días`
+    const mensajePago = Estado === "Al dia" 
+        ? `Días restantes para el próximo pago: ${DiasRestantes}` 
+        : `Adeuda hace ${Math.abs(DiasRestantes)} días`
 
     const borrarCliente = async (idABorrar) => {
         try {

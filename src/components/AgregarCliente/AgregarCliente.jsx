@@ -4,6 +4,7 @@ import { DayPicker } from "react-day-picker"
 import "react-day-picker/style.css"
 import { postCliente } from "../../services/clientService"
 import Swal from 'sweetalert2'
+import { DateTime } from 'luxon'
 
 const AgregarCliente = () => {
   const [selected, setSelected] = useState(null)
@@ -14,20 +15,25 @@ const AgregarCliente = () => {
 
   const handleSelectDate = (date) => {
     setSelected(date)
-    const formattedDate = date
-      ? date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })
-      : ''
+    const formattedDate = date ? DateTime.fromJSDate(date).toFormat('dd/MM/yyyy') : ''
     setFechaUltimoPago(formattedDate)
   }
 
   const generarCliente = async () => {
     const montoNumerico = parseFloat(monto)
 
+    const fechaUltimoPagoDate = DateTime.fromFormat(fechaUltimoPago, 'dd/MM/yyyy')
+    const fechaProximoPago = fechaUltimoPagoDate.plus({ months: 1 })
+    const diasRestantes = Math.ceil(fechaProximoPago.diffNow('days').days)
+    const EstadoCliente = diasRestantes >= 0 ? "Al día" : "Adeuda"
+
     const cliente = {
       Nombre: nombre,
       Gmail: email,
-      UltimoPago: fechaUltimoPago,
-      Pagos: [{Fecha: fechaUltimoPago, Monto: montoNumerico}]
+      UltimoPago: fechaUltimoPagoDate.toFormat('dd/MM/yyyy'),
+      DiasRestantes: diasRestantes,
+      Pagos: [{ Fecha: fechaUltimoPagoDate.toFormat('dd/MM/yyyy'), Monto: montoNumerico }],
+      Estado: EstadoCliente
     }
 
     try {
@@ -104,7 +110,7 @@ const AgregarCliente = () => {
             value={monto}
             onChange={(e) => setMonto(e.target.value)}
           />
-          <label htmlFor="floatingEmail">Monto</label>
+          <label htmlFor="floatingMonto">Monto</label>
         </div>
       </div>
       <button className="btn btn-generar-cliente text-light mt-3" onClick={generarCliente}>Generar Cliente</button>
