@@ -1,4 +1,4 @@
-import { getFirestore, collection, doc, getDoc, getDocs, addDoc, deleteDoc } from "firebase/firestore"
+import { getFirestore, collection, doc, getDoc, getDocs, addDoc, deleteDoc, updateDoc, increment } from "firebase/firestore"
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
@@ -58,7 +58,24 @@ export const borrarClienteFS = async (id) => {
     try {
         const clienteRef = doc(db, "Clientes", id)
         await deleteDoc(clienteRef)
+
+        const contadorBorradosRef = doc(db, "Clientes Borrados", "Contador")
+        updateDoc(contadorBorradosRef, { Cantidad: increment(1) })
     } catch (error) {
         console.error("Error al eliminar el documento: ", error)
+    }
+}
+
+export const getContClientesBorrados = async () => {
+    try {
+        const contadorBorradosRef = doc(db, "Clientes Borrados", "Contador")
+        const contadorSnap = await getDoc(contadorBorradosRef)
+
+        if (contadorSnap.exists()) {
+            return contadorSnap.data().Cantidad || 0
+        } 
+    } catch (error) {
+        console.log("Error al obtener el contador de clientes borrados: ", error)
+        return 0
     }
 }

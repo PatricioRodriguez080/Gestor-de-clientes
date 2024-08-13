@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { getClientes } from '../services/clientService'
+import { getClientes, getContClientesBorrados } from '../services/clientService'
 
 export const ClientesContext = createContext()
 
@@ -17,6 +17,8 @@ const ClientesContextProvider = ({ children }) => {
                 setClientes(clientes)
                 setCantClientes(clientes.length)
                 setAcumMonto(sumaGanancias(clientes))
+                const cantidadBorrados = await getContClientesBorrados()
+                setContClientesBorrados(cantidadBorrados)
                 setLoading(false)
             } catch (error) {
                 console.error("Error al obtener los datos: ", error)

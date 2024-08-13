@@ -2,24 +2,9 @@ import "./sectionClientes.css"
 import { DateTime } from 'luxon'
 import { borrarClienteFS } from '../../services/clientService'
 import { Link } from 'react-router-dom'
-import { useContext } from "react"
-import { ClientesContext } from "../../context/ClientesContext"
 
 const Cliente = ({ id, Nombre, UltimoPago, Estado, DiasRestantes }) => {
-    const { contClientesBorrados, setContClientesBorrados } = useContext(ClientesContext)
-
-    const mensajePago = Estado === "Al dia" 
-        ? `Días restantes para el próximo pago: ${DiasRestantes}` 
-        : `Adeuda hace ${Math.abs(DiasRestantes)} días`
-
-    const borrarCliente = async (idABorrar) => {
-        try {
-            await borrarClienteFS(idABorrar)
-            setContClientesBorrados(contClientesBorrados + 1)    
-        } catch (error) {
-            console.log("Error al eliminar el cliente: ", error)
-        }
-    }
+    const mensajePago = Estado === "Al dia" ? `Días restantes para el próximo pago: ${DiasRestantes}` : `Adeuda hace ${Math.abs(DiasRestantes)} días`
 
     return (
         <div className="col-12 col-clientes">
@@ -38,7 +23,7 @@ const Cliente = ({ id, Nombre, UltimoPago, Estado, DiasRestantes }) => {
                     <div className="col-md-3 d-flex align-items-center justify-content-center">
                         <Link to={`/cliente-detail/${id}`}><i className="fa-solid fa-exclamation fa-2x m-2"></i></Link>
                         <i className="fa-solid fa-pen-to-square fa-2x m-2"></i>
-                        <i className="fa-solid fa-trash fa-2x m-2" onClick={() => borrarCliente(id)}></i>
+                        <i className="fa-solid fa-trash fa-2x m-2" onClick={() => borrarClienteFS(id)}></i>
                     </div>
                 </div>
             </div>
