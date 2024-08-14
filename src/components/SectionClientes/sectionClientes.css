@@ -1,3 +1,17 @@
+.container-agregar-buscador {
+    gap: 20px;
+}
+
+.buscador-input {
+    height: 100%;
+    border-radius: var(--bs-border-radius);
+    background-color: #22546D;
+}
+
+.buscador-input::placeholder {
+    color: white;
+}
+
 .container-clientes {
     background-color: #337CA0;
     border-radius: 25px;
@@ -28,11 +42,14 @@
     color: #337CA0;
 }
 
-.btn-agregar-cliente, .dropdown-toggle, .dropdown-menu-categoria {
+.btn-agregar-cliente,
+.dropdown-toggle,
+.dropdown-menu-categoria {
     width: 200px;
     background-color: #22546D;
 }
 
-.btn-agregar-cliente:hover, .dropdown-toggle:hover {
+.btn-agregar-cliente:hover,
+.dropdown-toggle:hover {
     background-color: #337CA0;
 }

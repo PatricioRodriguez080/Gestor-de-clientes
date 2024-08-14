@@ -9,7 +9,7 @@ const BuscadorDeCliente = ({ setClienteAMostrar }) => {
     <div className="buscador-container">
       <input 
         type="text" 
-        className="buscador-input" 
+        className="buscador-input text-light" 
         placeholder="Buscar cliente..." 
         onChange={handleInputChange} 
       />
