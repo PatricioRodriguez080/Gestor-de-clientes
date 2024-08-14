@@ -28,11 +28,11 @@
     color: #337CA0;
 }
 
-.btn-agregar-cliente {
+.btn-agregar-cliente, .dropdown-toggle, .dropdown-menu-categoria {
     width: 200px;
     background-color: #22546D;
 }
 
-.btn-agregar-cliente:hover {
+.btn-agregar-cliente:hover, .dropdown-toggle:hover {
     background-color: #337CA0;
 }

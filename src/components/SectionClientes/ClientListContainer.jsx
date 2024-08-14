@@ -4,11 +4,11 @@ import ClientesList from './ClienteList'
 import { ClientesContext } from '../../context/ClientesContext'
 import SkeletonCliente from '../Skeletons/SkeletonCliente'
 
-const ClientesListContainer = ({ clienteAMostrar }) => {
+const ClientesListContainer = ({ clienteAMostrar, categoriaAMostrar }) => {
   const { clientes, loading } = useContext(ClientesContext)
   
   const ClientesFiltrados = clientes.filter(cliente => 
-    cliente.Nombre.toLowerCase().includes(clienteAMostrar.toLowerCase())
+    cliente.Nombre.toLowerCase().includes(clienteAMostrar.toLowerCase()) && (categoriaAMostrar === '' || cliente.Estado === categoriaAMostrar)
   )
 
   return (

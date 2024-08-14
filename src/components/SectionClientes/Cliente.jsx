@@ -4,7 +4,7 @@ import { borrarClienteFS } from '../../services/clientService'
 import { Link } from 'react-router-dom'
 
 const Cliente = ({ id, Nombre, UltimoPago, Estado, DiasRestantes }) => {
-    const mensajePago = Estado === "Al dia" ? `Días restantes para el próximo pago: ${DiasRestantes}` : `Adeuda hace ${Math.abs(DiasRestantes)} días`
+    const mensajePago = Estado === "Al día" ? `Días restantes para el próximo pago: ${DiasRestantes}` : `Adeuda hace ${Math.abs(DiasRestantes)} días`
 
     return (
         <div className="col-12 col-clientes">
