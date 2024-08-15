@@ -6,6 +6,8 @@
     height: 100%;
     border-radius: var(--bs-border-radius);
     background-color: #22546D;
+    --bs-btn-border-width: var(--bs-border-width);
+    --bs-btn-border-color: transparent;
 }
 
 .buscador-input::placeholder {

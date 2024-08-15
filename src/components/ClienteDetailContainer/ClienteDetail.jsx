@@ -11,12 +11,27 @@ const ClienteDetail = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
                 <div className="cliente-info">
                     <h5>{Nombre}</h5>
                     <p>{Gmail}</p>
-                    <p><small className="text-muted">Ultimo pago: {UltimoPago}</small></p>
+                    <p><small className="text-muted">Último pago: {UltimoPago}</small></p>
                 </div>
             </div>
             <div className="cliente-pagos">
                 <h2>Pagos</h2>
-                <h3>{Pagos}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Pagos.map((pago, index) => (
+                            <tr key={index}>
+                                <td>{pago.Fecha}</td>
+                                <td>{pago.Monto}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     )
