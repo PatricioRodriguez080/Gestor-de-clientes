@@ -13,6 +13,18 @@
     flex-direction: column;
 }
 
+th {
+    background-color: #22546D;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    background-color: #337CA0;
+    text-align: center;
+    padding: 8px;
+}
+
 @media (max-width: 480px) {
     .cliente-detail {
         flex-direction: column;
