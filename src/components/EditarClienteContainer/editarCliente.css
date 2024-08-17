@@ -1,0 +1,28 @@
+.container-forms {
+    width: 100%;
+    margin-left: 23px;
+}
+
+.btn {
+    background-color: #22546D;
+}
+
+.btn:hover {
+    background-color: #337CA0;
+}
+
+@media (max-width: 480px) {
+    .container-icon-forms {
+        flex-direction: column;
+    }
+
+    .container-forms {
+        margin: 0;
+    }
+
+    .btn-actualizar {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}

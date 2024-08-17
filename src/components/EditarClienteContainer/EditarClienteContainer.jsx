@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getClienteDetail } from '../../services/clientService'
+import SkeletonEditarCliente from '../Skeletons/SkeletonEditarCliente'
 import EditarCliente from './EditarCliente'
 
 const EditarClienteContainer = () => {
@@ -23,9 +24,9 @@ const EditarClienteContainer = () => {
   }, [idCliente])
 
   return (
-    <div className="container-editar-cliente">
+    <div className="container container-editar-cliente">
       {loadingClienteInfo ? (
-        <h1>cargando</h1>
+        <SkeletonEditarCliente />
       ) : (
         <EditarCliente {...clienteAMostrar} />
       )}

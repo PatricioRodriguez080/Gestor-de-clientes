@@ -87,7 +87,6 @@ export const actualizarClienteFS = async (clienteActualizado, idCliente) => {
             Nombre: clienteActualizado.Nombre,
             Gmail: clienteActualizado.Gmail
         })
-        console.log("Cliente actualizado con éxito")
     } catch (error) {
         console.error("Error al actualizar el cliente en Firestore: ", error)
     }

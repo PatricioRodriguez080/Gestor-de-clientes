@@ -26,7 +26,7 @@ const ClienteDetailContainer = () => {
     }, [idCliente])
 
     return (
-        <div className="container-cliente-detail">
+        <div className="container container-cliente-detail">
             {loadingClienteDetail ? (
                 <SkeletonClienteDetail />
             ) : (

@@ -1,13 +1,12 @@
 import React from 'react'
 import './clienteDetail.css'
+import ClienteIcon from '../SectionClientes/ClienteIcon/ClienteIcon'
 
 const ClienteDetail = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
     return (
         <div className="cliente-detail-container">
             <div className="cliente-detail">
-                <div className="cliente-icon">
-                    <i className="fa-regular fa-user fa-2xl"></i>
-                </div>
+                <ClienteIcon/>
                 <div className="cliente-info">
                     <h5>{Nombre}</h5>
                     <p>{Gmail}</p>
