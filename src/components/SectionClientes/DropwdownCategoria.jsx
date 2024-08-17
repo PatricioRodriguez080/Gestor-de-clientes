@@ -1,4 +1,5 @@
 import React from 'react'
+import './sectionClientes.css'
 
 const DropwdownCategoria = ({ setCategoriaAMostrar }) => {
 
@@ -12,9 +13,9 @@ const DropwdownCategoria = ({ setCategoriaAMostrar }) => {
                 Filtrar
             </button>
             <ul className="dropdown-menu dropdown-menu-categoria">
-                <li><a className="dropdown-item text-light" onClick={() => modificarCategoria("Al día")}>Al dia</a></li>
-                <li><a className="dropdown-item text-light" onClick={() => modificarCategoria("Adeuda")}>Adeuda</a></li>
-                <li><a className="dropdown-item text-light" onClick={() => modificarCategoria("")}>Todos</a></li>
+                <li className="listado-categorias"><a className="dropdown-item text-light" onClick={() => modificarCategoria("Al día")}>Al dia</a></li>
+                <li className="listado-categorias"><a className="dropdown-item text-light" onClick={() => modificarCategoria("Adeuda")}>Adeuda</a></li>
+                <li className="listado-categorias"><a className="dropdown-item text-light" onClick={() => modificarCategoria("")}>Todos</a></li>
             </ul>
         </div>
     )

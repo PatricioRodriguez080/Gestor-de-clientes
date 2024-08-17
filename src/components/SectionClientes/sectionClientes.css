@@ -55,3 +55,12 @@
 .dropdown-toggle:hover {
     background-color: #337CA0;
 }
+
+.dropdown-toggle:focus {
+    background-color: #22546D;
+}
+
+.listado-categorias a.dropdown-item:hover {
+    cursor: pointer;
+    background-color: #337CA0;
+}
