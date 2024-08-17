@@ -33,7 +33,7 @@ const EditarCliente = ({ id, Nombre, Gmail, UltimoPago }) => {
                     <ClienteIcon />
                 </div>
                 <div className="container-forms">
-                    <div className="form-floating form-nombre mb-3">
+                    <div className="form-floating mb-3">
                         <input
                             type="text"
                             className="form-control"
