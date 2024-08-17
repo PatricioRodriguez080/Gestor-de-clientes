@@ -18,7 +18,7 @@ const ClienteDetailContainer = () => {
                 setClienteAMostrar(cliente)
                 setLoadingClienteDetail(false)
             } catch (error) {
-                console.log("Error al traer detalles", error);
+                console.log("Error al traer detalles", error)
             }
         }
 

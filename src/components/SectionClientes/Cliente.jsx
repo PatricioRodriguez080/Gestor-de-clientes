@@ -22,7 +22,7 @@ const Cliente = ({ id, Nombre, UltimoPago, Estado, DiasRestantes }) => {
                     </div>
                     <div className="col-md-3 d-flex align-items-center justify-content-center">
                         <Link to={`/cliente-detail/${id}`}><i className="fa-solid fa-exclamation fa-2x m-2"></i></Link>
-                        <i className="fa-solid fa-pen-to-square fa-2x m-2"></i>
+                        <Link to={`/editar-cliente/${id}`}><i className="fa-solid fa-pen-to-square fa-2x m-2"></i></Link>
                         <i className="fa-solid fa-trash fa-2x m-2" onClick={() => borrarClienteFS(id)}></i>
                     </div>
                 </div>

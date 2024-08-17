@@ -5,7 +5,9 @@ import Inicio from './components/Inicio/Inicio'
 import SectionClientes from './components/SectionClientes/SectionClientes'
 import AgregarCliente from './components/AgregarCliente/AgregarCliente'
 import ClienteDetailContainer from './components/ClienteDetailContainer/ClienteDetailContainer'
+import EditarClienteContainer from './components/EditarClienteContainer/EditarClienteContainer'
 import ClientesContextProvider from './context/ClientesContext'
+
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
               <Route path='/clientes' element={<SectionClientes />} />
               <Route path='/agregar-cliente' element={<AgregarCliente />} />
               <Route path='/cliente-detail/:idCliente' element={<ClienteDetailContainer />}/>
+              <Route path='/editar-cliente/:idCliente' element={<EditarClienteContainer />}/>
             </Routes>
           </div>
         </BrowserRouter>
