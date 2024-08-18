@@ -1,6 +1,7 @@
 import React from 'react'
 import './clienteDetail.css'
 import ClienteIcon from '../SectionClientes/ClienteIcon/ClienteIcon'
+import TablaPagosCliente from './TablaPagosCliente/TablaPagosCliente'
 
 const ClienteDetail = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
     return (
@@ -15,22 +16,7 @@ const ClienteDetail = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
             </div>
             <div className="cliente-pagos mt-5">
                 <h2>Pagos</h2>
-                <table className="text-light">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Monto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {Pagos.map((pago, index) => (
-                            <tr key={index}>
-                                <td>{pago.Fecha}</td>
-                                <td>{`$${pago.Monto}`}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <TablaPagosCliente Pagos={Pagos}/>
             </div>
         </div>
     )

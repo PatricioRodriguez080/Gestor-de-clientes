@@ -6,6 +6,7 @@ import SectionClientes from './components/SectionClientes/SectionClientes'
 import AgregarCliente from './components/AgregarCliente/AgregarCliente'
 import ClienteDetailContainer from './components/ClienteDetailContainer/ClienteDetailContainer'
 import EditarClienteContainer from './components/EditarClienteContainer/EditarClienteContainer'
+import AgregarPagoContainer from './components/AgregarPagoContainer/AgregarPagoContainer'
 import ClientesContextProvider from './context/ClientesContext'
 
 
@@ -21,8 +22,9 @@ function App() {
               <Route path='/' element={<Inicio />} />
               <Route path='/clientes' element={<SectionClientes />} />
               <Route path='/agregar-cliente' element={<AgregarCliente />} />
-              <Route path='/cliente-detail/:idCliente' element={<ClienteDetailContainer />}/>
-              <Route path='/editar-cliente/:idCliente' element={<EditarClienteContainer />}/>
+              <Route path='/cliente-detail/:idCliente' element={<ClienteDetailContainer />} />
+              <Route path='/editar-cliente/:idCliente' element={<EditarClienteContainer />} />
+              <Route path='/agregar-pago/:idCliente' element={<AgregarPagoContainer />} />
             </Routes>
           </div>
         </BrowserRouter>

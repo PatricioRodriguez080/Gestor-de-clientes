@@ -64,3 +64,31 @@
     cursor: pointer;
     background-color: #337CA0;
 }
+
+@media (max-width: 480px) {
+    .container-agregar-buscador {
+        flex-direction: column;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-agregar-buscador {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
