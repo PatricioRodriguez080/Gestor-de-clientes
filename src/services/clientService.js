@@ -1,4 +1,4 @@
-import { getFirestore, collection, doc, getDoc, getDocs, addDoc, deleteDoc, updateDoc, increment } from "firebase/firestore"
+import { getFirestore, collection, doc, getDoc, getDocs, addDoc, deleteDoc, updateDoc, increment, arrayUnion } from "firebase/firestore"
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
@@ -89,5 +89,19 @@ export const actualizarClienteFS = async (clienteActualizado, idCliente) => {
         })
     } catch (error) {
         console.error("Error al actualizar el cliente en Firestore: ", error)
+    }
+}
+
+export const AgregarPagoFS = async (idCliente, nuevoPago, fechaUltimoPago, diasRestantes, estadoCliente) => { 
+    try {
+        const clienteRef = doc(db, "Clientes", idCliente)
+        await updateDoc(clienteRef, {
+            UltimoPago: fechaUltimoPago,
+            DiasRestantes: diasRestantes,
+            Estado: estadoCliente,
+            Pagos: arrayUnion(nuevoPago)
+        })
+    } catch (error) {
+        console.error("Error al agregar el pago en Firestore: ", error)
     }
 }
