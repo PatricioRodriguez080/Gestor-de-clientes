@@ -5,7 +5,7 @@ import "react-day-picker/style.css"
 import { AgregarPagoFS } from "../../services/clientService"
 import Swal from 'sweetalert2'
 
-const NuevoPago = ({ id, UltimoPago, Pagos }) => {
+const NuevoPago = ({ id }) => {
   const [monto, setMonto] = useState("")
   const [selectedDate, setSelectedDate] = useState(null)
   const [fechaPago, setFechaPago] = useState("")
@@ -17,7 +17,7 @@ const NuevoPago = ({ id, UltimoPago, Pagos }) => {
   }
 
   const agregarPago = async () => {
-    const montoNumerico = Number(monto)
+    const montoNumerico = parseFloat(monto)
 
     const fechaPagoDate = DateTime.fromFormat(fechaPago, 'dd/MM/yyyy')
     const fechaProximoPago = fechaPagoDate.plus({ months: 1 })
@@ -47,8 +47,9 @@ const NuevoPago = ({ id, UltimoPago, Pagos }) => {
   }
 
   return (
-    <div className="container">
-      <div className="form-floating mb-3">
+    <div className="container-form mt-5">
+      <h3>Monto</h3>
+      <div className="form-floating mb-5">
         <input
           type="number"
           className="form-control"

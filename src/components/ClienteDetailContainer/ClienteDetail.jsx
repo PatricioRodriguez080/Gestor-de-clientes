@@ -8,7 +8,7 @@ const ClienteDetail = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
         <div className="cliente-detail-container">
             <ClienteInfo infoCliente={{Nombre, Gmail, UltimoPago}} />
             <div className="cliente-pagos mt-5">
-                <h2>Pagos</h2>
+                <h2>Hitorial de pagos</h2>
                 <TablaPagosCliente Pagos={Pagos}/>
             </div>
         </div>
