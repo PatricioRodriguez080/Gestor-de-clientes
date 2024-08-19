@@ -21,7 +21,7 @@ const Navbar = () => {
                 <Link to={"/clientes"} className="nav-link text-light">Clientes</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light">Pagos</a>
+                <Link to={"/pagos"} className="nav-link text-light">Pagos</Link>
               </li>
             </ul>
           </div>

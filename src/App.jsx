@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from './components/NavBar/Navbar'
 import Inicio from './components/Inicio/Inicio'
 import SectionClientes from './components/SectionClientes/SectionClientes'
+import SectionPagos from './components/SectionPagos/SectionPagos'
 import AgregarCliente from './components/AgregarCliente/AgregarCliente'
 import ClienteDetailContainer from './components/ClienteDetailContainer/ClienteDetailContainer'
 import EditarClienteContainer from './components/EditarClienteContainer/EditarClienteContainer'
 import AgregarPagoContainer from './components/AgregarPagoContainer/AgregarPagoContainer'
 import ClientesContextProvider from './context/ClientesContext'
-
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Inicio />} />
               <Route path='/clientes' element={<SectionClientes />} />
+              <Route path='/pagos' element={<SectionPagos />} />
               <Route path='/agregar-cliente' element={<AgregarCliente />} />
               <Route path='/cliente-detail/:idCliente' element={<ClienteDetailContainer />} />
               <Route path='/editar-cliente/:idCliente' element={<EditarClienteContainer />} />
