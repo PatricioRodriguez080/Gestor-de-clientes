@@ -3,11 +3,23 @@ import Pago from './Pago'
 
 const PagoList = ({ clientes }) => {
     return (
-        <div className="row row-pagos">
-            {clientes.map(cliente => (
-                <Pago key={cliente.id} {...cliente} />
-            ))}
-        </div>
+        <>
+            <h2 className="text-center mb-4">Historial de pagos general</h2>
+            <table className="text-light" style={{ width: "100%" }}>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha de Pago</th>
+                        <th>Monto de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {clientes.map(cliente => (
+                        <Pago key={cliente.id} Nombre={cliente.Nombre} Pagos={cliente.Pagos} />
+                    ))}
+                </tbody>
+            </table>
+        </>
     )
 }
 

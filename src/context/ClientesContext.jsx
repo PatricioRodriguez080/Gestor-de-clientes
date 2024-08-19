@@ -14,6 +14,7 @@ const ClientesContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // onSnapshot se suscribe a los cambios en la colección Clientes. Cada vez que hay un cambio, se obtiene el snapshot de los datos y se actualiza el estado //
         const unsubscribe = onSnapshot(collection(db, 'Clientes'), (snapshot) => {
             const clientesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
             setClientes(clientesData)

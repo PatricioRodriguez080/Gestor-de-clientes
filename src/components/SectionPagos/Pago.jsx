@@ -1,8 +1,16 @@
 import React from 'react'
 
-const Pago = ({ id, Nombre, Gmail, UltimoPago, Pagos }) => {
+const Pago = ({ Nombre, Pagos }) => {
   return (
-    <h2>{Nombre}</h2>
+    <>
+      {Pagos.map((pago, index) => (
+        <tr key={index}>
+          <td>{Nombre}</td>
+          <td>{pago.Fecha}</td>
+          <td>{`$${pago.Monto}`}</td>
+        </tr>
+      ))}
+    </>
   )
 }
 
