@@ -1,7 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { getClientes, getContClientesBorrados } from '../services/clientService'
+import { getFirestore, collection, onSnapshot, doc } from 'firebase/firestore'
+import { getContClientesBorrados } from '../services/clientService'
 
 export const ClientesContext = createContext()
+
+const db = getFirestore()
 
 const ClientesContextProvider = ({ children }) => {
     const [clientes, setClientes] = useState([])
@@ -11,22 +14,31 @@ const ClientesContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const fetchData = async () => {
+        const unsubscribe = onSnapshot(collection(db, 'Clientes'), (snapshot) => {
+            const clientesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+            setClientes(clientesData)
+            setCantClientes(clientesData.length)
+            setAcumMonto(sumaGanancias(clientesData))
+        }, (error) => {
+            console.error("Error al obtener los datos: ", error)
+        })
+
+        return () => unsubscribe()
+    }, [])
+
+    useEffect(() => {
+        const fetchContClientesBorrados = async () => {
             try {
-                const clientes = await getClientes()
-                setClientes(clientes)
-                setCantClientes(clientes.length)
-                setAcumMonto(sumaGanancias(clientes))
                 const cantidadBorrados = await getContClientesBorrados()
                 setContClientesBorrados(cantidadBorrados)
                 setLoading(false)
             } catch (error) {
-                console.error("Error al obtener los datos: ", error)
+                console.error("Error al obtener la cantidad de clientes borrados: ", error)
             }
         }
 
-        fetchData()
-    }, [clientes])
+        fetchContClientesBorrados()
+    }, [])
 
     const sumaGanancias = (clientes) => {
         return clientes.reduce((acum, cliente) => {

@@ -21,7 +21,6 @@ export const getClientes = async () => {
         if (snapshot.size === 0) {
             console.log("Sin resultados")
         }
-
         return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
     } catch (error) {
         console.error("Error al obtener los datos: ", error)
