@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ClientesContext } from '../../context/ClientesContext'
+import SkeletonPagosGenerales from '../Skeletons/SkeletonPagosGenerales'
 import PagoList from './PagoList'
 
 const PagoListContainer = () => {
@@ -8,7 +9,7 @@ const PagoListContainer = () => {
     return (
         <div className="container-pagos">
             {loading ? (
-                <h2>Cargando...</h2>
+                <SkeletonPagosGenerales />
             ) : (
                 <PagoList clientes={clientes} />
             )}
