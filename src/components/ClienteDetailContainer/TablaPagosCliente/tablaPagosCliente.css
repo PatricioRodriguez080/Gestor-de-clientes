@@ -1,10 +1,14 @@
-th {
+.tabla-pagos-cliente table {
+    width: 100%;
+}
+
+.tabla-pagos-cliente th {
     background-color: #22546D;
     text-align: center;
     padding: 8px;
 }
 
-td {
+.tabla-pagos-cliente td {
     background-color: #2C6C8C;
     text-align: center;
     padding: 8px;

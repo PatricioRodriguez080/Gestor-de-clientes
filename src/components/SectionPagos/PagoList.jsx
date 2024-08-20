@@ -5,7 +5,7 @@ const PagoList = ({ clientes }) => {
     return (
         <>
             <h2 className="text-center mb-4">Historial de pagos general</h2>
-            <table className="text-light" style={{ width: "100%" }}>
+            <table className="text-light tabla-pagos-cliente" style={{ width: "100%" }}>
                 <thead>
                     <tr>
                         <th>Nombre</th>
