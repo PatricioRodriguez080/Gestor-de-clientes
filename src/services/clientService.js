@@ -72,14 +72,14 @@ export const getContClientesBorrados = async () => {
 
         if (contadorSnap.exists()) {
             return contadorSnap.data().Cantidad || 0
-        } 
+        }
     } catch (error) {
         console.log("Error al obtener el contador de clientes borrados: ", error)
         return 0
     }
 }
 
-export const actualizarClienteFS = async (clienteActualizado, idCliente) => { 
+export const actualizarClienteFS = async (clienteActualizado, idCliente) => {
     try {
         const clienteRef = doc(db, "Clientes", idCliente)
         await updateDoc(clienteRef, {
@@ -91,7 +91,7 @@ export const actualizarClienteFS = async (clienteActualizado, idCliente) => {
     }
 }
 
-export const AgregarPagoFS = async (idCliente, nuevoPago, fechaUltimoPago, diasRestantes, estadoCliente) => { 
+export const AgregarPagoFS = async (idCliente, nuevoPago, fechaUltimoPago, diasRestantes, estadoCliente) => {
     try {
         const clienteRef = doc(db, "Clientes", idCliente)
         await updateDoc(clienteRef, {
@@ -102,5 +102,28 @@ export const AgregarPagoFS = async (idCliente, nuevoPago, fechaUltimoPago, diasR
         })
     } catch (error) {
         console.error("Error al agregar el pago en Firestore: ", error)
+    }
+}
+
+export const actualizarPagoFS = async (idCliente, pagoActualizado, indexPago) => {
+    try {
+        const clienteRef = doc(db, "Clientes", idCliente)
+        const docSnap = await getDoc(clienteRef)
+
+        if (docSnap.exists()) {
+            const clienteData = docSnap.data()
+
+            const nuevosPagos = [...clienteData.Pagos]
+            nuevosPagos[indexPago] = pagoActualizado
+
+            await updateDoc(clienteRef, {
+                Pagos: nuevosPagos
+            })
+
+        } else {
+            console.log("Cliente no encontrado")
+        }
+    } catch (error) {
+        console.error("Error al actualizar el pago en Firestore: ", error)
     }
 }

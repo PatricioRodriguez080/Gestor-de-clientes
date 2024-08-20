@@ -15,7 +15,7 @@ const PagoList = ({ clientes }) => {
                 </thead>
                 <tbody>
                     {clientes.map(cliente => (
-                        <Pago key={cliente.id} Nombre={cliente.Nombre} Pagos={cliente.Pagos} />
+                        <Pago key={cliente.id} Nombre={cliente.Nombre} Pagos={cliente.Pagos} idCliente={cliente.id} />
                     ))}
                 </tbody>
             </table>

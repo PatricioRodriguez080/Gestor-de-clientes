@@ -1,0 +1,36 @@
+.btn-editar-monto {
+    padding: 5px;
+    color: white;
+    background-color: #22546D;
+}
+
+.btn-editar-monto:hover {
+    background-color: #337CA0;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.monto-icono-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editar-monto-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editar-monto-container input {
+    background-color: #22546D;
+    color: white;
+    border: none;
+}
+
+.monto-icono-container i, .editar-monto-container i {
+    margin-left: 8px;
+}
