@@ -17,7 +17,7 @@ const SkeletonClienteDetail = () => {
             </div>
             <div className="cliente-pagos">
                 <h2><Skeleton width={80} /></h2>
-                <Skeleton count={3} height={30} />
+                <Skeleton height={100} />
             </div>
         </div>
     )

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getClienteDetail } from '../../services/clientService'
-import SkeletonPagosCliente from '../Skeletons/SkeletonPagosCliente'
 import AgregarPago from './AgregarPago'
+import SkeletonAgregarPago from '../Skeletons/SkeletonAgregarPago'
 
 const AgregarPagoContainer = () => {
   const { idCliente } = useParams()
@@ -27,7 +27,7 @@ const AgregarPagoContainer = () => {
   return (
     <div className="container">
       {loadingClientePagos ? (
-        <SkeletonPagosCliente />
+        <SkeletonAgregarPago />
       ) : (
         <AgregarPago {...clienteAMostrar} />
       )}

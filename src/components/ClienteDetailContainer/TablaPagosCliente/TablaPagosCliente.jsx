@@ -3,7 +3,7 @@ import './tablaPagosCliente.css'
 
 const TablaPagosCliente = ({ Pagos }) => {
     return (
-        <table className="text-light tabla-pagos-cliente">
+        <table className="text-light tabla-pagos-cliente" style={{width: "100%"}}>
             <thead>
                 <tr>
                     <th>Fecha</th>
