@@ -21,7 +21,6 @@ const Inicio = () => {
           </>
         )}
       </div>
-      <h2>ACA PODRIA PONER UN GRAFICO CON CHART JS EN EL QUE ME MUESTRE LOS CLIENTES SEGUN EL MES Y LOS INGRESOS SEGUN EL MES</h2>
     </>
   )
 }
