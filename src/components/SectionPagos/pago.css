@@ -1,3 +1,30 @@
+.tabla-pagos-cliente {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.tabla-pagos-cliente th,
+.tabla-pagos-cliente td {
+    padding: 8px;
+    text-align: center;
+}
+
+.tabla-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .tabla-pagos-cliente th,
+    .tabla-pagos-cliente td {
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+
 .btn-editar-monto {
     padding: 5px;
     color: white;
@@ -31,6 +58,7 @@ td {
     border: none;
 }
 
-.monto-icono-container i, .editar-monto-container i {
+.monto-icono-container i,
+.editar-monto-container i {
     margin-left: 8px;
 }

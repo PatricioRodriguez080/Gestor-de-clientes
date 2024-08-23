@@ -19,7 +19,7 @@ export const getClientes = async () => {
         let clientesCollection = collection(db, "Clientes")
         const snapshot = await getDocs(clientesCollection)
         if (snapshot.size === 0) {
-            console.log("Sin resultados")
+            return []
         }
         return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
     } catch (error) {
@@ -46,7 +46,7 @@ export const getClienteDetail = async (id) => {
         if (docSnap.exists()) {
             return { id: docSnap.id, ...docSnap.data() }
         } else {
-            console.log("Sin resultados")
+            return null
         }
     } catch (error) {
         console.error("Error al obtener los datos: ", error)
